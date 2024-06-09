@@ -1,13 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* General styles */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    background-color: #1c2528;
+    font-family: 'Pirata One', cursive;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+nav {
+    display: none;
+}
+  
+/* Custom button styles */
+button {
+    background-color: #f9e8b1;
+    color: #5b4636;
+    border: #a67c52 solid 1px;
+    border-radius: 10px;
+    box-shadow: 0 4px #a67c52;
+    cursor: pointer;
+}
+  
+button:active {
+    background-color: #a67c52;
+    box-shadow: 0 2px #a67c52;
+    color: #f9e8b1;
+    transform: translateY(2px);
+}
+  
+/* Input field styles */
+input {
+    font-size: 18px;
+    padding: 10px 15px;
+    border: 2px solid #a67c52;
+    border-radius: 8px;
+    background-color: #f9e8b1;
+    color: #5b4636;
+    box-shadow: inset 0 0 10px #8b7b5f;
+    outline: none;
+}
+  
+input::placeholder {
+    color: #a67c52;
+    opacity: 0.8;
+}
+
+.partie-container {
+	margin: auto;
+	padding: 60px;
+	text-align: center;
+    background-color: #d6cca9;
+    box-shadow: inset 0 0 80px 5px #2b2b2b;
+    border-radius: 12px;
+}
+
+
+.popin-rules {
+    background-color: #d6cca9;
+    box-shadow: inset 0 0 80px 5px #2b2b2b;
+}
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+
+}
+
+th, td {
+    padding: 0.75rem;
+    border: 1px solid #a67c52;
+    background-color: #f9e8b1;
+    text-align: left;
 }
