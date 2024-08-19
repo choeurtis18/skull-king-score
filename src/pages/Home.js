@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PlayerInput from './PlayerInput';
 import ScoreTable from './ScoreTable';
 import ScoreInput from './ScoreInput';
@@ -12,6 +12,20 @@ const Home = () => {
   const [scores, setScores] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Charger les données depuis le localStorage au montage du composant
+  useEffect(() => {
+    const savedPlayers = JSON.parse(localStorage.getItem('players')) || [];
+    const savedScores = JSON.parse(localStorage.getItem('scores')) || [];
+    setPlayers(savedPlayers);
+    setScores(savedScores);
+  }, []);
+
+  // Sauvegarder les données dans le localStorage à chaque modification des joueurs ou des scores
+  useEffect(() => {
+    localStorage.setItem('players', JSON.stringify(players));
+    localStorage.setItem('scores', JSON.stringify(scores));
+  }, [players, scores]);
+
   const addPlayer = (name) => {
     setPlayers([...players, { name, scores: [] }]);
   };
@@ -23,6 +37,8 @@ const Home = () => {
   const resetGame = () => {
     setPlayers([]);
     setScores([]);
+    localStorage.removeItem('players');
+    localStorage.removeItem('scores');
   };
 
   return (
